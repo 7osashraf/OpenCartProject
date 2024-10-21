@@ -142,9 +142,6 @@ public class HomePageComp extends HomePageWebElements{
     public void CheckAlertOnCilickingOnCompareThisProductBtn(){
         logger.debug("Check Compare this product button Alert");
 
-        //Check Compare this product button is clicked
-        logger.debug("Click Compare this product button");
-
         WebElement CompareThisProduct=GetCompareThisProductButton();
         //move to add to Compare this product btn
         Actions action =new Actions(driver);
@@ -158,6 +155,16 @@ public class HomePageComp extends HomePageWebElements{
 //        String alertText = alert.getText();
         System.out.println("Alert text: " + alertText);}
 
+public void ClickImageSliderButton(){
+        logger.debug("Click Image Slider button");
+        String CurrentImage=GetSliderImage().getAttribute("src");
+        WebElement SliderButton= GetSliderButton();
+        Actions action =new Actions(driver);
+        action.moveToElement(SliderButton).perform();
+        SliderButton.click();
+        String NextImage=GetSliderImage().getAttribute("src");
+        CheckIfNotequals(CurrentImage,NextImage);
 
+}
 
 }

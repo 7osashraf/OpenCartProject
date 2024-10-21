@@ -86,6 +86,15 @@ public class HomePageCompTest extends HomePageComp {
         CheckAlertOnCilickingOnCompareThisProductBtn();;
     }
 
+    @Test(priority = 13)
+    public void CheckImageSliderBtn() {
+        CheckHomePageOpened();
+        ClickImageSliderButton();
+    }
+
+
+
+
 
 
 
