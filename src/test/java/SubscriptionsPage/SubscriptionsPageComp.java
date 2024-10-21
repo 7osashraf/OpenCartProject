@@ -1,4 +1,4 @@
 package SubscriptionsPage;
 
-public class SubscriptionsPageComp {
+public class SubscriptionsPageComp extends SubscriptionsPageWebElements {
 }

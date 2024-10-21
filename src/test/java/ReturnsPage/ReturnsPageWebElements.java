@@ -1,4 +1,6 @@
 package ReturnsPage;
 
-public class ReturnsPageWebElements {
+import Utility.FindingElements;
+
+public class ReturnsPageWebElements extends FindingElements {
 }

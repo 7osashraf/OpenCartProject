@@ -1,4 +1,6 @@
 package ReturnsPage_Test;
 
-public class ReturnsPageCompTest {
+import ReturnsPage.ReturnsPageComp;
+
+public class ReturnsPageCompTest extends ReturnsPageComp {
 }

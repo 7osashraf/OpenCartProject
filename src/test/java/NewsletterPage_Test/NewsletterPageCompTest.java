@@ -1,4 +1,6 @@
 package NewsletterPage_Test;
 
-public class NewsletterPageCompTest {
+import NewsletterPage.NewsletterPageComp;
+
+public class NewsletterPageCompTest extends NewsletterPageComp {
 }

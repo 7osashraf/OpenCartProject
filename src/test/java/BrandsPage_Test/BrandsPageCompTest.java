@@ -1,4 +1,6 @@
 package BrandsPage_Test;
 
-public class BrandsPageCompTest {
+import BrandsPage.BrandsPageComp;
+
+public class BrandsPageCompTest extends BrandsPageComp {
 }

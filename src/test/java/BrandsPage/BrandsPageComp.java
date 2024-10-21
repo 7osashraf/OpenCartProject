@@ -1,4 +1,4 @@
 package BrandsPage;
 
-public class BrandsPageComp {
+public class BrandsPageComp extends BrandsPageWebElements {
 }

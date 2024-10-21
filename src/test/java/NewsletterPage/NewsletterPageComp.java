@@ -1,6 +1,6 @@
 package NewsletterPage;
 
-public class NewsletterPageComp {
+public class NewsletterPageComp extends NewsletterPageWebElements {
 
     // Title displayed
     // Subscribe button

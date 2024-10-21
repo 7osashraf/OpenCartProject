@@ -1,4 +1,6 @@
 package SubscriptionsPage_Test;
 
-public class SubscriptionsPageCompTest {
+import SubscriptionsPage.SubscriptionsPageComp;
+
+public class SubscriptionsPageCompTest extends SubscriptionsPageComp {
 }

@@ -1,4 +1,4 @@
 package ReturnsPage;
 
-public class ReturnsPageComp {
+public class ReturnsPageComp extends ReturnsPageWebElements {
 }
