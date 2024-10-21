@@ -12,23 +12,19 @@ import org.testng.ITestResult;
 public class settingUpWebDriver extends ScreenRecord {
     public static WebDriver driver;
 
-    public void SetupTheDriver() throws Exception {
+    public void SetupTheDriver(ITestResult result) throws Exception {
         //ScreenRecorderUtil.startRecord("Setup TheDriver");
         //ScreenRecorderUtils2.startRecording("Setup TheDriver");
         //ScreenRecord.startRecording("LoginPage");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.navigate().to(getConfigValue("config", "URL"));
-    //ss
+        driver.navigate().to(getConfigValue("config", "url"));
     }
 
     public void OpenBrowser(ITestResult result) throws Exception {
         driver=new ChromeDriver();
-        ConfigerLoader load=new ConfigerLoader();
-        driver.navigate().to(load.getConfigValue("config", "url"));
+        driver.navigate().to(getConfigValue("config", "url"));
         driver.manage().window().maximize();
-
-
 
     }
 
