@@ -13,7 +13,7 @@ public class HomePageComp extends HomePageWebElements{
         logger.debug("check Home page opened");
         //check URL
         String url=driver.getCurrentUrl();
-        Checkequals(url, "https://tutorialsninja.com/demo/");
+        checkIfEqual(url, "https://tutorialsninja.com/demo/");
     }
 
 
@@ -76,7 +76,7 @@ public class HomePageComp extends HomePageWebElements{
         Thread.sleep(1000);
         String CartNumber=GetHeaderCartIcon().getText();
         System.out.println(CartNumber);
-        CheckContains(CartNumber,"1");
+        checkIfContain(CartNumber,"1");
 
     }
 
@@ -123,7 +123,7 @@ public class HomePageComp extends HomePageWebElements{
         Thread.sleep(1000);
         String WishListNumber=GetHeaderWishListIcon().getText();
         System.out.println(WishListNumber);
-        CheckContains(WishListNumber,"1");
+        checkIfContain(WishListNumber,"1");
 
     }
 
