@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    stages {
+
+
+        stage('Clean Projects') {
+            steps {
+                bat 'mvn clean'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Home Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat """
+                            mvn clean test -PHomePage
+                        """
+                    } catch (Exception e) {
+                        echo "Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+            junit '/target/surefire-reports/junitreports/TEST-*.xml'
+            archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+        }
+    }
+}
