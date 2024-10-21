@@ -18,14 +18,12 @@ public class settingUpWebDriver extends ScreenRecord {
         //ScreenRecord.startRecording("LoginPage");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.navigate().to(getConfigValue("config", "URL"));
-    //ss
+        driver.navigate().to(getConfigValue("config", "url"));
     }
 
     public void OpenBrowser(ITestResult result) throws Exception {
         driver=new ChromeDriver();
-        ConfigerLoader load=new ConfigerLoader();
-        driver.navigate().to(load.getConfigValue("config", "url"));
+        driver.navigate().to(getConfigValue("config", "url"));
         driver.manage().window().maximize();
 
     }
