@@ -19,7 +19,7 @@ public class settingUpWebDriver extends ScreenRecord {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to(getConfigValue("config", "URL"));
-        //j
+    //ss
     }
 
     public void OpenBrowser(ITestResult result) throws Exception {
