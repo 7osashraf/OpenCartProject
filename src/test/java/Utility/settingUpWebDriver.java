@@ -26,8 +26,6 @@ public class settingUpWebDriver extends ScreenRecord {
         driver.navigate().to(getConfigValue("config", "url"));
         driver.manage().window().maximize();
 
-
-
     }
 
     public static WebDriver getDriver() {
