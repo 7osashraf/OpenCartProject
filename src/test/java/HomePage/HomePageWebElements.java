@@ -14,6 +14,9 @@ public class HomePageWebElements extends FindingElements {
     public WebElement GetCompareThisProductButton(){return findElementByXPath("//*[@id=\"content\"]/div[2]/div[1]/div/div[3]/button[3]");}
     public WebElement GetHeaderCartIcon(){return findElementByClassName("btn-inverse");}
     public WebElement GetAlert(){return findElementByClassName("alert");}
+    public WebElement SliderImage(){return findElementByClassName("img-responsive");}
+
+
 
 
 
