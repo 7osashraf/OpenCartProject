@@ -12,7 +12,7 @@ import org.testng.ITestResult;
 public class settingUpWebDriver extends ScreenRecord {
     public static WebDriver driver;
 
-    public void SetupTheDriver() throws Exception {
+    public void SetupTheDriver(ITestResult result) throws Exception {
         //ScreenRecorderUtil.startRecord("Setup TheDriver");
         //ScreenRecorderUtils2.startRecording("Setup TheDriver");
         //ScreenRecord.startRecording("LoginPage");
