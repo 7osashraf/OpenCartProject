@@ -23,7 +23,7 @@ pipeline {
                 script {
                     try {
                         bat """
-                            mvn clean test -PHomePage
+                            mvn clean package -PHomePage
                         """
                     } catch (Exception e) {
                         echo "Test failed: ${e.message}"
