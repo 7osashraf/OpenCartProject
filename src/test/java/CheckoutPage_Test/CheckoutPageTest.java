@@ -30,11 +30,25 @@ public class CheckoutPageTest extends CheckoutPageComp {
 
     @Test(priority = 1)
     public void checkCheckoutPageOpened() throws InterruptedException {
-        HomePageCompTest homePageCompTest = new HomePageCompTest();
-        homePageCompTest.ClickAddToCartBtn();
 
+        driver.navigate().to("https://tutorialsninja.com/demo/index.php?route=product/product&path=20&product_id=47");
+        helpFunc();
         checkIfCheckoutPageOpened();
-
     }
+
+    @Test(priority = 2)
+    public void checkCheckoutOptions() throws InterruptedException {
+        checkCheckoutPageOpened();
+
+        checkIfCheckoutOptions();
+    }
+
+    @Test(priority = 3)
+    public void checkStepTwo() throws InterruptedException {
+        checkCheckoutOptions();
+        validateBillingDetails();
+    }
+
+
 
 }
