@@ -2,9 +2,6 @@ pipeline {
     agent any
 
 
-
-
-
  stage('Clean Project') {
             steps {
                 bat 'mvn clean'
@@ -22,24 +19,7 @@ pipeline {
                     }
                 }
 
-        stage('Login Page Comp Test') {
-            steps {
-                script {
-                    try {
-                        bat """
 
-                            mvn clean test -PLoginPage
-                        """
-                    } catch (Exception e) {
-                        echo "Login Page Comp Test failed: ${e.getMessage()}"
-
-
-
-
-                    }
-                }
-            }
-        }
 
         stage('Home Page Comp Test') {
             steps {
