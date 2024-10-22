@@ -14,7 +14,7 @@ public class LoginPageComp_Test extends LoginPageComp {
 
     @BeforeMethod
     public void OpenHomePage(ITestResult result) throws Exception {
-        OpenBrowser(result);
+        SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
     }
 
