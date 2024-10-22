@@ -16,11 +16,7 @@ pipeline {
             }
         }
 
-        stage('Package') {
-            steps {
-                bat 'mvn clean package'
-            }
-        }
+
 
         stage('Home Page Comp Test') {
             steps {
