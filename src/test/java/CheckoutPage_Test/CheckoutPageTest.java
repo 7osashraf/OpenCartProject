@@ -37,18 +37,43 @@ public class CheckoutPageTest extends CheckoutPageComp {
     }
 
     @Test(priority = 2)
-    public void checkCheckoutOptions() throws InterruptedException {
+    public void checkStepOne() throws InterruptedException {
         checkCheckoutPageOpened();
 
-        checkIfCheckoutOptions();
+        checkIfCheckoutOptions("Guest");
     }
 
     @Test(priority = 3)
     public void checkStepTwo() throws InterruptedException {
-        checkCheckoutOptions();
+        checkStepOne();
         validateBillingDetails();
     }
 
+    @Test(priority = 3)
+    public void checkStepThree() throws InterruptedException {
+        checkStepTwo();
+        checkIfDeleviryDetailsFilled();
+    }
 
+    @Test(priority = 3)
+    public void checkStepFour() throws InterruptedException {
+        checkStepThree();
+        checkDeliveryMethod();
+
+    }
+
+    @Test(priority = 4)
+    public void checkStepFive() throws InterruptedException {
+        checkStepFour();
+        checkIfSelectingPaymentMethod();
+
+    }
+
+    @Test(priority = 5)
+    public void checkStepSix() throws InterruptedException {
+        checkStepFive();
+        checkConfirmOrder();
+
+    }
 
 }
