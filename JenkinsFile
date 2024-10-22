@@ -3,12 +3,7 @@ pipeline {
 
 
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/7osashraf/OpenCartProject.git'
-            }
-        }
+
 
  stage('Clean Project') {
             steps {
