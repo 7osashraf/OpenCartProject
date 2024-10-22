@@ -50,5 +50,6 @@ public class ProductPageTest extends ProductPageComp {
     @Test(priority = 6, dependsOnMethods = {"testSelectProductQuantity", "testProductPageOpened"})
     public void testAddToCart() {
         addToCart();
+
     }
 }
