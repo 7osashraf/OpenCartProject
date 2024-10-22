@@ -16,18 +16,14 @@ pipeline {
             }
         }
 
-        stage('Package') {
-            steps {
-                bat 'mvn clean package'
-            }
-        }
+
 
         stage('Home Page Comp Test') {
             steps {
                 script {
                     try {
                         bat """
-                            mvn clean test -PHomePage
+                            mvn clean package -PHomePage
                         """
                     } catch (Exception e) {
                         echo "Test failed: ${e.message}"

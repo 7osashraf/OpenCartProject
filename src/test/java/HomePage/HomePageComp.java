@@ -63,6 +63,8 @@ public class HomePageComp extends HomePageWebElements {
 //        explicitlyWaitForVisibility((WebElement) alert);
 //        String alertText = alert.getText();
         System.out.println("Alert text: " + alertText);
+        explicitlyWaitForVisibility(GetAlert());
+        checkIfEqual(alertText,"Success");
     }
 
     public void CheckCartIconNumberUpdates() throws InterruptedException {

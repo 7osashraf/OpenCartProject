@@ -13,7 +13,7 @@ import java.time.Duration;
 public class RegisterPageCompTest extends RegisterPageComp {
 
     @BeforeMethod
-    public void openBrowser(ITestResult result) throws Exception {
+    public void OpenHomePage(ITestResult result) throws Exception {
         SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
     }
