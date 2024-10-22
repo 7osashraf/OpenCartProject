@@ -24,7 +24,6 @@ public class CheckoutPageWebElement extends FindingElements {
     public WebElement getPostcodeField(){return findElementById("input-payment-postcode");}
     public WebElement getCountryField(){return findElementById("input-payment-country");}
     public WebElement getZoneField(){return findElementById("input-payment-zone");}
-
     public WebElement getFirstNameDeliveryField(){return findElementById("input-shipping-firstname");}
     public WebElement getLastNameDeliveryField(){return findElementById("input-shipping-lastname");}
     public WebElement getAddressDeliveryField(){return findElementById("input-shipping-address-1");}
@@ -33,7 +32,6 @@ public class CheckoutPageWebElement extends FindingElements {
     public WebElement getZoneDropdownInDelviryOptions(){return findElementById("input-shipping-zone");}
 
     public WebElement getCheckBox(){return findElementByXPath("//input[@type='checkbox']");}
-
     public WebElement getCheckPoint(){return findElementByXPath("//input[@type='radio' and @name='shipping_method' and @value='flat.flat' and @checked]");}
     public WebElement getCommentField(){return findElementByXPath("//textarea[@name='comment']");}
     public WebElement getPaymentMethodElement(){return findElementByXPath("//*[@id=\"collapse-payment-method\"]/div/div[1]/label/input");}
@@ -48,6 +46,9 @@ public class CheckoutPageWebElement extends FindingElements {
     public WebElement getSubTotalElement(){return findElementByXPath("//tfoot/tr[1]/td[2]");}
     public WebElement getShippingRateElement(){return findElementByXPath("//*[@id=\"collapse-checkout-confirm\"]/div/div[1]/table/tfoot/tr[2]/td[2]");}
     public WebElement getTotalAmountElement(){return findElementByXPath("//*[@id=\"collapse-checkout-confirm\"]/div/div[1]/table/tfoot/tr[3]/td[2]");}
+    public WebElement getRegisterCheckoutOption(){return findElementByXPath("//input[@value='register']");}
+    public WebElement getGuestCheckoutOption(){return findElementByXPath("//input[@value='guest']");}
+
 
     public List<WebElement> getPanels() {return findElementsByClassName("panel-default");}
 

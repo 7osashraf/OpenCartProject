@@ -31,7 +31,7 @@ public class CheckoutPageTest extends CheckoutPageComp {
     @Test(priority = 1)
     public void checkCheckoutPageOpened() throws InterruptedException {
 
-        driver.navigate().to("https://tutorialsninja.com/demo/index.php?route=product/product&path=20&product_id=47");
+        driver.navigate().to(getConfigValue("config", "product"));
         helpFunc();
         checkIfCheckoutPageOpened();
     }
@@ -39,8 +39,7 @@ public class CheckoutPageTest extends CheckoutPageComp {
     @Test(priority = 2)
     public void checkStepOne() throws InterruptedException {
         checkCheckoutPageOpened();
-
-        checkIfCheckoutOptions("Guest");
+        checkIfCheckoutOptions(getConfigValue("config", "checkoutOption"));
     }
 
     @Test(priority = 3)

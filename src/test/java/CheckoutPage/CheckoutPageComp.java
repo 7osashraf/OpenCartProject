@@ -13,7 +13,7 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
         logger.debug("Verify if the checkout complete page is displayed.");
 
         String url = driver.getCurrentUrl();
-        checkIfEqual(url, "https://tutorialsninja.com/demo/index.php?route=checkout/checkout");
+        checkIfEqual(url, getConfigValue("config", "checkoutPageUrl"));
 
         // chcek page title
         WebElement checkoutPageTitle = getcheckoutPageTitle();
@@ -36,7 +36,7 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
         checkIfEqual(titleText, "Step 1: Checkout Options");
 
         if(option.toLowerCase().equals("register")){
-            WebElement registerCheckoutOption = driver.findElement(By.xpath("//input[@value='register']"));
+            WebElement registerCheckoutOption = getRegisterCheckoutOption();
             registerCheckoutOption.click();
 
             // check the title of the header in step 2 if I select register
@@ -46,7 +46,7 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
             checkIfEqual(titleText, "Step 2: Account & Billing Details");
         }
         else if(option.toLowerCase().equals("guest")){
-            WebElement guestCheckoutOption = driver.findElement(By.xpath("//input[@value='guest']"));
+            WebElement guestCheckoutOption = getGuestCheckoutOption();
             guestCheckoutOption.click();
 
             // check the title of the header in step 2 if I select guest
@@ -58,7 +58,6 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
         else {
             System.out.println("Invalid option: " + option);
         }
-
 
         WebElement continueBtn = getContinueBtn1();
         continueBtn.click();
@@ -72,16 +71,16 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
         explicitlyWaitForVisibility(billingDetailsForm);
         checkIfNotNull(billingDetailsForm, "Billing details form");
 
-        fillAndVerifyField(getFirstNameField(), "Hos");
-        fillAndVerifyField(getLastNameField(), "ashraf");
-        fillAndVerifyField(getEmailField(), "hosashraf@gmail.com");
-        fillAndVerifyField(getTelephoneField(), "0123456789");
-        fillAndVerifyField(getAddress1Field(), "10 saad");
-        fillAndVerifyField(getCityField(), "Alex");
-        fillAndVerifyField(getPostcodeField(), "220755");
+        fillAndVerifyField(getFirstNameField(), getConfigValue("config", "firstName"));
+        fillAndVerifyField(getLastNameField(), getConfigValue("config", "lastName"));
+        fillAndVerifyField(getEmailField(), getConfigValue("config", "email"));
+        fillAndVerifyField(getTelephoneField(), getConfigValue("config", "telephone"));
+        fillAndVerifyField(getAddress1Field(), getConfigValue("config", "address"));
+        fillAndVerifyField(getCityField(), getConfigValue("config", "city"));
+        fillAndVerifyField(getPostcodeField(), getConfigValue("config", "postalCode"));
 
-        selectAndVerifyField(getCountryField(),"Egypt");
-        selectAndVerifyField(getZoneField(),"Al Buhayrah");
+        selectAndVerifyField(getCountryField(), getConfigValue("config", "country"));
+        selectAndVerifyField(getZoneField(), getConfigValue("config", "zone"));
 
         WebElement stepTwoContinueBtn = getContinueBtn2();
         stepTwoContinueBtn.click();
@@ -95,20 +94,20 @@ public class CheckoutPageComp extends CheckoutPageWebElement{
 
         if(isChecked){
 
-            checkIfEqual(getFieldValue(getFirstNameDeliveryField()), "Hos");
-            checkIfEqual(getFieldValue(getLastNameDeliveryField()), "ashraf");
-            checkIfEqual(getFieldValue(getAddressDeliveryField()), "10 saad");
-            checkIfEqual(getFieldValue(getCityDeliveryField()), "Alex");
+            checkIfEqual(getFieldValue(getFirstNameDeliveryField()), getConfigValue("config", "firstName"));
+            checkIfEqual(getFieldValue(getLastNameDeliveryField()), getConfigValue("config", "lastName"));
+            checkIfEqual(getFieldValue(getAddressDeliveryField()), getConfigValue("config", "address"));
+            checkIfEqual(getFieldValue(getCityDeliveryField()), getConfigValue("config", "city"));
 
         }
         else{
-            fillAndVerifyField(getFirstNameDeliveryField(), "Hos");
-            fillAndVerifyField(getLastNameDeliveryField(), "ashraf");
-            fillAndVerifyField(getAddressDeliveryField(), "10 saad");
-            fillAndVerifyField(getCityDeliveryField(), "Alex");
+            fillAndVerifyField(getFirstNameDeliveryField(), getConfigValue("config", "firstName"));
+            fillAndVerifyField(getLastNameDeliveryField(), getConfigValue("config", "lastName"));
+            fillAndVerifyField(getAddressDeliveryField(), getConfigValue("config", "address"));
+            fillAndVerifyField(getCityDeliveryField(), getConfigValue("config", "city"));
 
-            selectAndVerifyField(getCountryDropdownInDelviryOptions(), "Egypt");
-            selectAndVerifyField(getZoneDropdownInDelviryOptions(), "Al Buhayrah");
+            selectAndVerifyField(getCountryDropdownInDelviryOptions(), getConfigValue("config", "country"));
+            selectAndVerifyField(getZoneDropdownInDelviryOptions(), getConfigValue("config", "zone"));
 
             WebElement stepThreeContinueBtn = getContinueBtn3();
             stepThreeContinueBtn.click();
