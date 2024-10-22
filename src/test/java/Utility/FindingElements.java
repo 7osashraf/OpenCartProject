@@ -19,7 +19,7 @@ public class FindingElements extends WaitUtils{
     public WebElement findElementByXPath(String xPath) {WebElement elemnt = driver.findElement(By.xpath(xPath));
         return elemnt;}
 
-    public WebElement findElementByCssSelector(String Css) {WebElement elemnt = driver.findElement(By.cssSelector(Css));
+    public WebElement findElementByLinkText(String LinkText) {WebElement elemnt = driver.findElement(By.linkText(LinkText));
         return elemnt;}
 
 
