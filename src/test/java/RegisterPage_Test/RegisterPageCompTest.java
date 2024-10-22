@@ -14,7 +14,7 @@ public class RegisterPageCompTest extends RegisterPageComp {
 
     @BeforeMethod
     public void OpenHomePage(ITestResult result) throws Exception {
-        OpenBrowser(result);
+        SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
     }
 
