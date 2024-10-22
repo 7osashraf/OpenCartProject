@@ -98,11 +98,15 @@ public class HomePageCompTest extends HomePageComp {
         ClickImageSliderPreviousButton();
     }
 
+    @Test(priority = 14)
+    public void CheckBottomImageSlider()  {
+        CheckHomePageOpened();
+        CheckLogoImagesDisplayInBottomSlider();
+    }
 
 
 
 
-//
 
 
 

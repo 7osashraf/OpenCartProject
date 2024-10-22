@@ -6,8 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+
 
 public class HomePageComp extends HomePageWebElements {
 
@@ -208,7 +207,33 @@ public class HomePageComp extends HomePageWebElements {
 
     }
 
+public void CheckLogoImagesDisplayInBottomSlider(){
+
+    logger.debug("Check Logo Images Display In Bottom Slider");
+    //get slider container
+    WebElement BottomSliderContainer = GetBottomSliderContainer();
+    List<WebElement> slides = BottomSliderContainer.findElements(By.cssSelector(".swiper-slide"));
+    //get current image Name
+    int i=0;
+    for(WebElement CurrentImage:slides){
+
+        WebElement Image = slides.get(i).findElement(By.className("img-responsive"));
+        String CurrentImageName = Image.getAttribute("alt");
+        System.out.println(CurrentImageName);
+        //move to slider button and click on it
+        WebElement SliderButton = GetSliderPreviousButton();
+        Actions action = new Actions(driver);
+        action.moveToElement(SliderButton).perform();
+        CheckIfButtonIsEnable(SliderButton, "Slider Button");
+        SliderButton.click();
+        i++;
+
+    }
+
 
 
 }
-//
+
+
+
+}

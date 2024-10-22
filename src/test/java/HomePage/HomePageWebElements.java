@@ -16,6 +16,7 @@ public class HomePageWebElements extends FindingElements {
     public WebElement GetHeaderCartIcon(){return findElementByClassName("btn-inverse");}
     public WebElement GetAlert(){return findElementByClassName("alert");}
     public WebElement GetSliderContainer(){return findElementByClassName("swiper-container");}
+    public WebElement GetBottomSliderContainer(){return findElementById("carousel0");}
     public WebElement GetSliderImage(){return findElementByClassName("img-responsive");}
     public WebElement GetSliderNextButton(){return findElementByClassName("swiper-button-next");}
     public WebElement GetSliderPreviousButton(){return findElementByClassName("swiper-button-prev");}
