@@ -13,8 +13,8 @@ import java.time.Duration;
 public class LoginPageComp_Test extends LoginPageComp {
 
     @BeforeMethod
-    public void OpenHomePage(ITestResult result) throws Exception {
-        OpenBrowser(result);
+    public void openBrowser(ITestResult result) throws Exception {
+        SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
     }
 
