@@ -1,24 +1,48 @@
 pipeline {
     agent any
 
+
+
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/7osashraf/OpenCartProject.git'
+            }
+        }
 
-
-        stage('Clean Projects') {
+ stage('Clean Project') {
             steps {
                 bat 'mvn clean'
             }
         }
-
         stage('Compile') {
             steps {
                 bat 'mvn clean compile'
             }
         }
 
-        stage('Package') {
+         stage('Package') {
+                    steps {
+                        bat 'mvn clean package' // Ensure this is run to create .jar files
+                    }
+                }
+
+        stage('Login Page Comp Test') {
             steps {
-                bat 'mvn clean package'
+                script {
+                    try {
+                        bat """
+
+                            mvn clean test -PLoginPage
+                        """
+                    } catch (Exception e) {
+                        echo "Login Page Comp Test failed: ${e.getMessage()}"
+
+
+
+
+                    }
+                }
             }
         }
 
@@ -27,10 +51,16 @@ pipeline {
                 script {
                     try {
                         bat """
-                            mvn clean test -PHomePage
+
+                            mvn test -PHomePage
                         """
                     } catch (Exception e) {
-                        echo "Test failed: ${e.message}"
+                        echo "Home Page Comp Test failed: ${e.getMessage()}"
+
+
+
+
+
                     }
                 }
             }
@@ -39,9 +69,11 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
-            junit '/target/surefire-reports/junitreports/TEST-*.xml'
-            archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+
+             archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+             junit '/target/surefire-reports/junitreports/TEST-*.xml'
+             archiveArtifacts artifacts: 'ScreenShot/*.png', allowEmptyArchive: true
+
         }
     }
 }
