@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 
 public class RegisterPageWebElements extends FindingElements {
+    //Get Register Page Container
+    public WebElement GetRegisterPageContainer() {return findElementById("account-register");}
 
     // Get FirstName field
     public WebElement GetFirstName() {return findElementById("input-firstname");}
@@ -27,5 +29,20 @@ public class RegisterPageWebElements extends FindingElements {
     public WebElement GetPasswordConfirm()  {return findElementById("input-confirm");}
 
     //  Get Continue Button Container
-    public WebElement GetContinueButton()  {return findElementByClassName("btn-primary");}
+    public WebElement GetContinueButton() {return findElementByXPath("//input[@value='Continue']");}
+
+    //Get My Account Drop Down Arrow
+    public WebElement GetMyAccountDropDownList() {return findElementByClassName("caret");}
+
+    //Get Login Page Icon Page From Drop Down List
+    public WebElement GetRegisterIcon() {return findElementByXPath("//*[@id=\"top-links\"]/ul/li[2]/ul/li[1]/a");}
+
+    //  Get PrivacyPolicy CheckBox Container
+    public WebElement GetPrivacyPolicyCheckBox() {return findElementByXPath("//input[@type='checkbox']");}
+
+    //Get Error Message Container
+    public WebElement GetGetErrorMessageContainer() {return findElementByClassName("alert-danger");}
+
+
+
 }
