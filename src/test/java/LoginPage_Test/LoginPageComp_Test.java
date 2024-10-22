@@ -22,16 +22,19 @@ public class LoginPageComp_Test extends LoginPageComp {
     public void CheckIfLoginPageOpened() {
         CheckLoginPageOpened();
     }
+
     @Test(priority = 2)
     public void CheckIfUserLoggedinWithValidData () throws IOException {
         CheckLoginPageOpened();
         CheckIfUserLoginWithValidData();
     }
+
     @Test(priority = 3)
     public void CheckIfUserLoggedinWithINValidData () throws IOException {
         CheckLoginPageOpened();
         CheckIfUserLoginWithINValidData();
     }
+
     @Test(priority = 4)
     public void TestLoginWithFakeData() throws IOException {
         CheckLoginPageOpened();
