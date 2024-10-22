@@ -31,24 +31,48 @@ public class CheckoutPageTest extends CheckoutPageComp {
     @Test(priority = 1)
     public void checkCheckoutPageOpened() throws InterruptedException {
 
-        driver.navigate().to("https://tutorialsninja.com/demo/index.php?route=product/product&path=20&product_id=47");
+        driver.navigate().to(getConfigValue("config", "product"));
         helpFunc();
         checkIfCheckoutPageOpened();
     }
 
     @Test(priority = 2)
-    public void checkCheckoutOptions() throws InterruptedException {
+    public void checkStepOne() throws InterruptedException {
         checkCheckoutPageOpened();
-
-        checkIfCheckoutOptions();
+        checkIfCheckoutOptions(getConfigValue("config", "checkoutOption"));
     }
 
     @Test(priority = 3)
     public void checkStepTwo() throws InterruptedException {
-        checkCheckoutOptions();
+        checkStepOne();
         validateBillingDetails();
     }
 
+    @Test(priority = 3)
+    public void checkStepThree() throws InterruptedException {
+        checkStepTwo();
+        checkIfDeleviryDetailsFilled();
+    }
 
+    @Test(priority = 3)
+    public void checkStepFour() throws InterruptedException {
+        checkStepThree();
+        checkDeliveryMethod();
+
+    }
+
+    @Test(priority = 4)
+    public void checkStepFive() throws InterruptedException {
+        checkStepFour();
+        checkIfSelectingPaymentMethod();
+
+    }
+
+    @Test(priority = 5)
+    public void checkStepSix() throws InterruptedException {
+        checkStepFive();
+        checkConfirmOrder();
+
+    }
 
 }
