@@ -3,7 +3,6 @@ package HomePage;
 import org.openqa.selenium.WebElement;
 import Utility.FindingElements;
 
-import java.util.List;
 
 public class HomePageWebElements extends FindingElements {
 
@@ -20,7 +19,7 @@ public class HomePageWebElements extends FindingElements {
     public WebElement GetSliderImage(){return findElementByClassName("img-responsive");}
     public WebElement GetSliderNextButton(){return findElementByClassName("swiper-button-next");}
     public WebElement GetSliderPreviousButton(){return findElementByClassName("swiper-button-prev");}
-    public List<WebElement> GetAllProductsList() {return findElementsByClassName("row");}
+
 
 
     }
