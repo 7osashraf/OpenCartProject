@@ -1,82 +1,86 @@
 package HomePage;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import org.apache.commons.math3.analysis.function.Add;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class HomePageComp extends HomePageWebElements{
+import java.util.List;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+public class HomePageComp extends HomePageWebElements {
 
     public void CheckHomePageOpened() {
         logger.debug("check Home page opened");
         //check URL
-        String url=driver.getCurrentUrl();
+        String url = driver.getCurrentUrl();
         checkIfEqual(url, "https://tutorialsninja.com/demo/");
     }
 
 
     public void CheckProductImage() {
         logger.debug("Check Product image");
-        boolean ProductImage=GetProductImage().isDisplayed();
-        System.out.println("product image "+ProductImage);
+        boolean ProductImage = GetProductImage().isDisplayed();
+        System.out.println("product image " + ProductImage);
     }
 
-    public void CheckProductNameColor(){
+    public void CheckProductNameColor() {
         logger.debug("Check Product name color");
-        String Color=GetProductName().getCssValue("Color");
-        System.out.println("Color is: "+Color);
+        String Color = GetProductName().getCssValue("Color");
+        System.out.println("Color is: " + Color);
     }
 
     public void CheckProductinfo() {
         logger.debug("Check product info");
-        String ProductInfo=GetProductContentContainer().getText();
+        String ProductInfo = GetProductContentContainer().getText();
         System.out.println(ProductInfo);
     }
 
     public void ClickOnAddToCartButton() {
         logger.debug("Click Add to cart button");
-        WebElement AddToCart=GetAddToCartButton();
+        WebElement AddToCart = GetAddToCartButton();
         explicitlyWaitForVisibility(AddToCart);
         //move to add to cart btn
-        Actions action =new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(AddToCart).perform();
         //check if add to cart btn is enabled
-        CheckIfButtonIsEnable(AddToCart,"Add To Cart Button");
-        AddToCart.click();}
+        CheckIfButtonIsEnable(AddToCart, "Add To Cart Button");
+        AddToCart.click();
+    }
 
-    public void CheckAlertOnCilickingOnAddTOCartBtn(){
+    public void CheckAlertOnCilickingOnAddTOCartBtn() {
         logger.debug("Check Add to cart button Alert");
-        WebElement AddToCart=GetAddToCartButton();
+        WebElement AddToCart = GetAddToCartButton();
         explicitlyWaitForVisibility(AddToCart);
         //Click on add to cart btn
-        Actions action =new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(AddToCart).perform();
         AddToCart.click();
         //check alert is appeared
 
-        String alertText =GetAlert().getText();
+        String alertText = GetAlert().getText();
 //        Alert alert = driver.switchTo().alert();
 //        explicitlyWaitForVisibility((WebElement) alert);
 //        String alertText = alert.getText();
-       System.out.println("Alert text: " + alertText);}
+        System.out.println("Alert text: " + alertText);
+    }
 
     public void CheckCartIconNumberUpdates() throws InterruptedException {
         logger.debug("Check Cart Icon Number Updates");
-        WebElement AddToCart=GetAddToCartButton();
+        WebElement AddToCart = GetAddToCartButton();
         explicitlyWaitForVisibility(AddToCart);
         //Click on add to cart btn
-        Actions action =new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(AddToCart).perform();
         AddToCart.click();
         //check cart icon number
-        WebElement CartIcon=GetHeaderCartIcon();
+        WebElement CartIcon = GetHeaderCartIcon();
         action.moveToElement(CartIcon).perform();
         Thread.sleep(1000);
-        String CartNumber=GetHeaderCartIcon().getText();
+        String CartNumber = GetHeaderCartIcon().getText();
         System.out.println(CartNumber);
-        checkIfContain(CartNumber,"1");
+        checkIfContain(CartNumber, "1");
 
     }
 
@@ -92,7 +96,7 @@ public class HomePageComp extends HomePageWebElements{
         AddToWishList.click();
     }
 
-    public void CheckAlertOnCilickingOnAddToWishListBtn(){
+    public void CheckAlertOnCilickingOnAddToWishListBtn() {
         logger.debug("Check Wish list button Alert");
 
         WebElement AddToWishList = GetAddToWishListButton();
@@ -102,11 +106,12 @@ public class HomePageComp extends HomePageWebElements{
         action.moveToElement(AddToWishList).perform();
         AddToWishList.click();
         //check alert appeared
-        String alertText =GetAlert().getText();
+        String alertText = GetAlert().getText();
 //        Alert alert = driver.switchTo().alert();
 //        explicitlyWaitForVisibility((WebElement) alert);
 //        String alertText = alert.getText();
-        System.out.println("Alert text: " + alertText);}
+        System.out.println("Alert text: " + alertText);
+    }
 
     public void CheckWishListIconNumberUpdates() throws InterruptedException {
         logger.debug("Check Wish List Icon Number Updates");
@@ -119,52 +124,90 @@ public class HomePageComp extends HomePageWebElements{
         CheckIfButtonIsEnable(AddToWishList, "Add To Wish List Button");
         AddToWishList.click();
         //check wish list icon number
-        WebElement WishListIcon=GetHeaderWishListIcon();
+        WebElement WishListIcon = GetHeaderWishListIcon();
         Thread.sleep(1000);
-        String WishListNumber=GetHeaderWishListIcon().getText();
+        String WishListNumber = GetHeaderWishListIcon().getText();
         System.out.println(WishListNumber);
-        checkIfContain(WishListNumber,"1");
+        checkIfContain(WishListNumber, "1");
 
     }
 
-    public void ClickOnCompareThisProductButton(){
+    public void ClickOnCompareThisProductButton() {
         //Check Compare this product button is clicked
         logger.debug("Click Compare this product button");
-        WebElement CompareThisProduct=GetCompareThisProductButton();
+        WebElement CompareThisProduct = GetCompareThisProductButton();
         //move to add to Compare this product btn
-        Actions action =new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(CompareThisProduct).perform();
         //Check if Compare this product btn is enabled
-        CheckIfButtonIsEnable(CompareThisProduct,"Compare This Product Button");
+        CheckIfButtonIsEnable(CompareThisProduct, "Compare This Product Button");
         CompareThisProduct.click();
 
     }
-    public void CheckAlertOnCilickingOnCompareThisProductBtn(){
+
+    public void CheckAlertOnCilickingOnCompareThisProductBtn() {
         logger.debug("Check Compare this product button Alert");
 
-        WebElement CompareThisProduct=GetCompareThisProductButton();
+        WebElement CompareThisProduct = GetCompareThisProductButton();
         //move to add to Compare this product btn
-        Actions action =new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(CompareThisProduct).perform();
         //Click on Compare this product btn is enabled
         CompareThisProduct.click();
         //check alert appeared
-        String alertText =GetAlert().getText();
+        String alertText = GetAlert().getText();
 //        Alert alert = driver.switchTo().alert();
 //        explicitlyWaitForVisibility((WebElement) alert);
 //        String alertText = alert.getText();
-        System.out.println("Alert text: " + alertText);}
+        System.out.println("Alert text: " + alertText);
+    }
 
-public void ClickImageSliderButton(){
-        logger.debug("Click Image Slider button");
-        String CurrentImage=GetSliderImage().getAttribute("src");
-        WebElement SliderButton= GetSliderButton();
-        Actions action =new Actions(driver);
+    public void ClickImageSliderNextButton() {
+        logger.debug("Click Image Slider Next button");
+        //get slider container
+        WebElement SliderContainer = GetSliderContainer();
+        List<WebElement> slides = SliderContainer.findElements(By.cssSelector(".swiper-slide"));
+        //get current image Name
+        WebElement CurrentImage = slides.get(0).findElement(By.className("img-responsive"));
+        String CurrentImageName = CurrentImage.getAttribute("alt");
+        System.out.println(CurrentImageName);
+        //move to slider button and click on it
+        WebElement SliderButton = GetSliderNextButton();
+        Actions action = new Actions(driver);
         action.moveToElement(SliderButton).perform();
+        CheckIfButtonIsEnable(SliderButton, "Slider Button");
         SliderButton.click();
-        String NextImage=GetSliderImage().getAttribute("src");
-        CheckIfNotequals(CurrentImage,NextImage);
+        //get next image Name
+        WebElement NextImage = slides.get(1).findElement(By.className("img-responsive"));
+        String NextImageName = NextImage.getAttribute("alt");
+        System.out.println(NextImageName);
+        CheckIfNotequals(CurrentImageName, NextImageName);
+    }
 
-}
+
+    public void ClickImageSliderPreviousButton() {
+        logger.debug("Click Image Slider Previous button");
+        //get slider container
+        WebElement SliderContainer = GetSliderContainer();
+        List<WebElement> slides = SliderContainer.findElements(By.cssSelector(".swiper-slide"));
+        //get current image Name
+        WebElement CurrentImage = slides.get(0).findElement(By.className("img-responsive"));
+        String CurrentImageName = CurrentImage.getAttribute("alt");
+        System.out.println(CurrentImageName);
+        //move to slider button and click on it
+        WebElement SliderButton = GetSliderPreviousButton();
+        Actions action = new Actions(driver);
+        action.moveToElement(SliderButton).perform();
+        CheckIfButtonIsEnable(SliderButton, "Slider Button");
+        SliderButton.click();
+        //get next image Name
+        WebElement NextImage = slides.get(1).findElement(By.className("img-responsive"));
+        String NextImageName = NextImage.getAttribute("alt");
+        System.out.println(NextImageName);
+        CheckIfNotequals(CurrentImageName, NextImageName);
+
+    }
+
+
 
 }
