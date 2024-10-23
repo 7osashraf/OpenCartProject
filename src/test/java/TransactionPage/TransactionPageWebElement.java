@@ -23,8 +23,7 @@ public class TransactionPageWebElement extends FindingElements {
         return driver.findElement(By.className("text-center")); // Locator for transaction details row-wise
     }
     // Get the 'Continue' button if available on the page
-    public WebElement getContinueButton() {
-        return driver.findElement(By.xpath("//a[text()='Continue']")); // Locator for the Continue button
+    public WebElement getContinueButton() {return driver.findElement(By.xpath("//a[text()='Continue']")); // Locator for the Continue button
     }
 
     // Get the transaction date for a specific row

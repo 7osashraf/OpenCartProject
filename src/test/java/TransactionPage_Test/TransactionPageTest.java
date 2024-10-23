@@ -48,6 +48,7 @@ public class TransactionPageTest extends TransactionPageComp{
     @Test
     public void testCheckNoTransactionMessage()  {
         testCheckTransactionPageOpened();
+
         checkNoTransactionMessage();
     }
  //   @Test

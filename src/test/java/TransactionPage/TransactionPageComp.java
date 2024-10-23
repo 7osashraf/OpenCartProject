@@ -16,10 +16,7 @@ public class TransactionPageComp extends TransactionPageWebElement{
         logger.debug("Check Transaction Page opened");
 
 
-//        // URL verification
-//        String url = driver.getCurrentUrl();
-//        checkIfEqual(url, getConfigValue("config", "transaction"));
-//
+
 
         // Redirect to the transaction page
         String transactionUrl = getConfigValue("config", "transaction");
