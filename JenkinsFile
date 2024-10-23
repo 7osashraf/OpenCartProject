@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Clean previous Allure results to ensure fresh data
-                    echo 'Cleaning Allure results...'
+
                     deleteDir('allure-results') // Clear out the existing allure results
                 }
             }
