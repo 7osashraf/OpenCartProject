@@ -322,6 +322,36 @@
             </properties>
         </profile>
 
+        <!-- TransactionPage Profile -->
+        <profile>
+            <id>TransactionPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>TransactionPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>TransactionPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- ReturnsPage Profile -->
+        <profile>
+            <id>ReturnsPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>ReturnsPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>ReturnsPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
 
 
     </profiles>

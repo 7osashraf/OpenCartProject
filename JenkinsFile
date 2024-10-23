@@ -16,6 +16,30 @@ pipeline {
 
 
 
+        stage('Register Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PRegisterPage'
+                    } catch (Exception e) {
+                        echo "RegisterPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('Login Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PLoginPage'
+                    } catch (Exception e) {
+                        echo "LoginPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
 
         stage('Home Page Comp Test') {
             steps {
@@ -29,6 +53,31 @@ pipeline {
             }
         }
 
+        stage('Category Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PCategoryPage'
+                    } catch (Exception e) {
+                        echo "CategoryPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('Product Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PProductPage'
+                    } catch (Exception e) {
+                        echo "ProductPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+
 
         stage('Checkout Page Comp Test') {
             steps {
@@ -37,6 +86,18 @@ pipeline {
                         bat 'mvn package -PCheckoutPage'
                     } catch (Exception e) {
                         echo "Checkout Page Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('My Account Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PMyAccountPage'
+                    } catch (Exception e) {
+                        echo "MyAccountPage Test failed: ${e.message}"
                     }
                 }
             }
@@ -67,29 +128,42 @@ pipeline {
             }
         }
 
-        stage('Category Page Comp Test') {
+        stage('New Sletter Page Comp Test') {
             steps {
                 script {
                     try {
-                        bat 'mvn package -PCategoryPage'
+                        bat 'mvn package -PNewsletterPage'
                     } catch (Exception e) {
-                        echo "CategoryPage Test failed: ${e.message}"
+                        echo "NewsletterPage Test failed: ${e.message}"
                     }
                 }
             }
         }
 
-        stage('Footer Comp Test') {
+        stage('Transcation Page Comp Test') {
             steps {
                 script {
                     try {
-                        bat 'mvn package -PFooter'
+                        bat 'mvn package -PTransactionPage'
                     } catch (Exception e) {
-                        echo "Footer Test failed: ${e.message}"
+                        echo "TransactionPage Test failed: ${e.message}"
                     }
                 }
             }
         }
+
+        stage('Return Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PReturnsPage'
+                    } catch (Exception e) {
+                        echo "ReturnsPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
 
         stage('Header Comp Test') {
             steps {
@@ -103,61 +177,13 @@ pipeline {
             }
         }
 
-        stage('Login Page Comp Test') {
+        stage('Footer Comp Test') {
             steps {
                 script {
                     try {
-                        bat 'mvn package -PLoginPage'
+                        bat 'mvn package -PFooter'
                     } catch (Exception e) {
-                        echo "LoginPage Test failed: ${e.message}"
-                    }
-                }
-            }
-        }
-
-        stage('My Account Page Comp Test') {
-            steps {
-                script {
-                    try {
-                        bat 'mvn package -PMyAccountPage'
-                    } catch (Exception e) {
-                        echo "MyAccountPage Test failed: ${e.message}"
-                    }
-                }
-            }
-        }
-
-        stage('New Sletter Page Comp Test') {
-            steps {
-                script {
-                    try {
-                        bat 'mvn package -PNewsletterPage'
-                    } catch (Exception e) {
-                        echo "NewsletterPage Test failed: ${e.message}"
-                    }
-                }
-            }
-        }
-
-        stage('Product Page Comp Test') {
-            steps {
-                script {
-                    try {
-                        bat 'mvn package -PProductPage'
-                    } catch (Exception e) {
-                        echo "ProductPage Test failed: ${e.message}"
-                    }
-                }
-            }
-        }
-
-        stage('Register Page Comp Test') {
-            steps {
-                script {
-                    try {
-                        bat 'mvn package -PRegisterPage'
-                    } catch (Exception e) {
-                        echo "RegisterPage Test failed: ${e.message}"
+                        echo "Footer Test failed: ${e.message}"
                     }
                 }
             }
