@@ -17,7 +17,7 @@ public class ReturnsPageWebElements extends FindingElements {
     public WebElement GetProductCode(){return findElementById("input-model");}
     public WebElement GetFaulty(){return findElementById("input-comment");}
     public WebElement GetYesBtn(){return findElementByXPath("//input[@value='1']");}
-    public WebElement GetReasonForReturn(){return findElementById("//input[@value='4']");}
+    public WebElement GetReasonForReturn(){return findElementByXPath("//input[@value='4']");}
     public WebElement GetErrorMessageContainer(){return findElementByClassName("text-danger");}
     public WebElement GetFirstName(){return findElementById("input-firstname");}
 
