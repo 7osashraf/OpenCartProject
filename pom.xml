@@ -352,6 +352,36 @@
             </properties>
         </profile>
 
+        <!-- ShoppingCartPage Profile -->
+        <profile>
+            <id>ShoppingCartPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>ShoppingCartPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>ShoppingCartPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- WhislistPage Profile -->
+        <profile>
+            <id>WhislistPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>WhislistPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>WhislistPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
 
 
     </profiles>

@@ -77,7 +77,17 @@ pipeline {
             }
         }
 
-
+        stage('Cart Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PShoppingCartPage'
+                    } catch (Exception e) {
+                        echo "ShoppingCartPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
 
         stage('Checkout Page Comp Test') {
             steps {
@@ -123,6 +133,18 @@ pipeline {
                         bat 'mvn package -PBrandsPage'
                     } catch (Exception e) {
                         echo "BrandsPage Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('Whislist Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PWhislistPage'
+                    } catch (Exception e) {
+                        echo "WhislistPage Test failed: ${e.message}"
                     }
                 }
             }
