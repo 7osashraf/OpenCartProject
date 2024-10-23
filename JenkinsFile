@@ -42,7 +42,7 @@ pipeline {
 
             // Generate Allure report
             allure([
-                results: [[path: 'target/allure-results']]
+                results: [[path: 'allure-results']]
             ])
         }
     }
