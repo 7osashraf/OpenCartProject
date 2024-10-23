@@ -25,8 +25,10 @@ public class BrandsPageComp extends BrandsPageWebElements {
         logger.debug("Check page title is displayed");
         // Title displayed
         WebElement PageTitle = GetTitleName();
-        checkIfNotNull(PageTitle, "Page Title");
-        CheckIfTextIsDiplayed(PageTitle, "Find Your Favorite Brand");
+        CheckIfTextIsDiplayed(PageTitle, "Page Title");
+        String Title = PageTitle.getText();
+        checkIfEqual(Title, "Find Your Favorite Brand");
+        System.out.println("the Title of the page is : " +Title);
     }
 
     // "Brands Index" container and isdisplayed
