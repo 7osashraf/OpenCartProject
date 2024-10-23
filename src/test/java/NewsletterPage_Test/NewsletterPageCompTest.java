@@ -1,5 +1,6 @@
 package NewsletterPage_Test;
 
+import LoginPage_Test.LoginPageComp_Test;
 import NewsletterPage.NewsletterPageComp;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -14,6 +15,11 @@ public class NewsletterPageCompTest extends NewsletterPageComp {
     public void openBrowser(ITestResult result) throws Exception {
         SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        LoginPageComp_Test loginPageCompTest = new LoginPageComp_Test();
+        loginPageCompTest.CheckIfUserLoggedinWithValidData();
+
+        driver.navigate().to(getConfigValue("config","newsletterUrl"));
     }
 
     @Test
