@@ -15,15 +15,14 @@ pipeline {
         }
 
 
-  stage('Clean Allure Results') {
-            steps {
-                script {
-                    // Clean previous Allure results to ensure fresh data
-
-                    deleteDir('allure-results') // Clear out the existing allure results
-                }
-            }
-        }
+ stage('Clean Allure Results') {
+     steps {
+         script {
+             echo 'Cleaning Allure results...'
+             bat 'rmdir /s /q \\allure-results'
+         }
+     }
+ }
         stage('Home Page Comp Test') {
             steps {
                 script {
