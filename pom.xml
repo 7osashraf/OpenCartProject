@@ -153,7 +153,33 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>BrandsPage</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>BrandsPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>BrandsPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
 
+        <profile>
+            <id>NewsletterPage</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>NewsletterPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>NewsletterCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
 
 
     </profiles>
