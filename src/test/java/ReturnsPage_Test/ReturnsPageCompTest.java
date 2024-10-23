@@ -5,6 +5,7 @@ import ReturnsPage.ReturnsPageComp;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -19,6 +20,29 @@ public class ReturnsPageCompTest extends ReturnsPageComp {
         loginPageCompTest.CheckIfUserLoggedinWithValidData();
 
         driver.navigate().to(getConfigValue("config","returnsUrl"));
+    }
+
+    @Test
+    public void TestReturnsPageOpened(){
+        CheckReturnsPageOpened();
+    }
+
+    @Test
+    public void TestClickBackBtn(){
+        CheckReturnsPageOpened();
+        ClickBackBtn();
+    }
+
+    @Test
+    public void TestUserEnteredValidData(){
+        CheckReturnsPageOpened();
+        CheckUserEnteredValidData();
+    }
+
+    @Test
+    public void TestIfUserEntersInvalidData(){
+        CheckReturnsPageOpened();
+        CheckIfUserEntersInvalidData();
     }
 
     @AfterMethod
