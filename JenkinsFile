@@ -35,9 +35,20 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '/target/*.jar', allowEmptyArchive: true
-            junit '/target/surefire-reports/junitreports/TEST-*.xml'
-            archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+            // Archive the JAR file generated
+                       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+
+                       // Publish JUnit test results
+                       junit 'target/surefire-reports/junitreports/TEST-*.xml'
+
+                       // Archive screenshots
+                       archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+
+                       // Generate Allure report
+                       allure([
+                           results: [[path: 'target/allure-results']]
+                       ])
+
         }
     }
 }
