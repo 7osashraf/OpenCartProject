@@ -11,7 +11,7 @@ import java.time.Duration;
 public class HomePageCompTest extends HomePageComp {
     @BeforeMethod
     public void OpenHomePage(ITestResult result) throws Exception {
-        OpenBrowser(result);
+        SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }
@@ -85,6 +85,28 @@ public class HomePageCompTest extends HomePageComp {
         CheckHomePageOpened();
         CheckAlertOnCilickingOnCompareThisProductBtn();;
     }
+
+    @Test(priority = 13)
+    public void ClickImageSliderNextBtn()  {
+        CheckHomePageOpened();
+        ClickImageSliderNextButton();
+    }
+
+    @Test(priority = 14)
+    public void ClickImageSliderPreviousBtn()  {
+        CheckHomePageOpened();
+        ClickImageSliderPreviousButton();
+    }
+
+    @Test(priority = 14)
+    public void CheckBottomImageSlider()  {
+        CheckHomePageOpened();
+        CheckLogoImagesDisplayInBottomSlider();
+    }
+
+
+
+
 
 
 

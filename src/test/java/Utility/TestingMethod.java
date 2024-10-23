@@ -36,6 +36,16 @@ public class TestingMethod extends settingUpWebDriver{
         }
     }
 
+    public static void CheckIfNotequals(String expected, String actual) {
+        if(expected.equals(actual)) {
+            String ErrorMessage=String.format( "Expected "+expected +" but found "+actual);
+            System.out.println(ErrorMessage);
+            throw new AssertionError(ErrorMessage);
+
+        }
+
+    }
+
     // assert contain
     public void checkIfContain(String actualValue ,String expectedText) {
         if(!(actualValue.contains(expectedText))) {
@@ -74,6 +84,13 @@ public class TestingMethod extends settingUpWebDriver{
         }
     }
 
+    // Assert true
+    public void checkIfTrue(boolean condition, String message) {
+        if (!condition) {
+            String ErrorMessage = String.format("Expected the condition to be true: %s", message);
+            throw new AssertionError(ErrorMessage);
+        }
+    }
 
 }
 
