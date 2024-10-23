@@ -28,6 +28,31 @@ pipeline {
                 }
             }
         }
+
+
+        stage('Checkout Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PCheckoutPage'
+                    } catch (Exception e) {
+                        echo "Checkout Page Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('Reward Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PRewardPage'
+                    } catch (Exception e) {
+                        echo "Reward Page Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
     }
 
     post {

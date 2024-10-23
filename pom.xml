@@ -145,6 +145,36 @@
             </properties>
         </profile>
 
+        <!-- CheckoutPage Profile -->
+        <profile>
+            <id>CheckoutPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>CheckoutPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>CheckoutPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- RewardPage Profile -->
+        <profile>
+            <id>RewardPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>RewardPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>RewardPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
 
 
 
