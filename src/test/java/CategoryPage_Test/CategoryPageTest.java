@@ -19,7 +19,6 @@ public class CategoryPageTest extends CategoryPageComp {
     public void testCheckCategoryPageOpened() {
         driver.navigate().to(getConfigValue("config", "category"));
         CheckCategoryPageOpened();
-
     }
 
     @Test

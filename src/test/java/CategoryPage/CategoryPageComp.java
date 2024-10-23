@@ -105,7 +105,7 @@ public class CategoryPageComp extends CategoryPageWebElement{
     }
 
     public void CheckProductPriceDisplayed() {
-        logger.debug("Check Product Price displayed");
+        logger.debug("Check Product Price displayed.");
         boolean isDisplayed = GetProductPrice().isDisplayed();
         System.out.println("Product price is displayed: " + isDisplayed);
     }

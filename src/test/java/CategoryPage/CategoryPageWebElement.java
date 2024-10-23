@@ -7,9 +7,7 @@ public class CategoryPageWebElement extends FindingElements {
     public WebElement GetCategoryPageContainer() {
         return findElementById("product-category");
     }
-    public WebElement GetCategoryContentContainer() {
-        return findElementById("content");
-    }
+    public WebElement GetCategoryContentContainer() {return findElementById("content");}
 
     public WebElement GetProductList() {
         return findElementByClassName("product-layout");
