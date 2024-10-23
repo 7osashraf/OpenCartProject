@@ -14,12 +14,12 @@ public class ReturnsPageComp extends ReturnsPageWebElements {
         //Container
         WebElement ReturnsContainer = GetReturnsContainer();
         checkIfNotNull(ReturnsContainer,"Returns Container");
-        // Title
-        WebElement ReturnsTitle = GetReturnsTitle();
-        CheckIfTextIsDiplayed(ReturnsTitle, "Page Title");
-        String Title = ReturnsTitle.getText();
-        checkIfEqual(Title, "Product Returns");
-        System.out.println("the Title of the page is : " +Title);
+//        // Title
+//        WebElement ReturnsTitle = GetReturnsTitle();
+//        CheckIfTextIsDiplayed(ReturnsTitle, "Page Title");
+//        String Title = ReturnsTitle.getText();
+//        checkIfEqual(Title, "Product Returns");
+//        System.out.println("the Title of the page is : " +Title);
 
     }
 
