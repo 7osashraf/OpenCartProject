@@ -19,7 +19,7 @@ pipeline {
      steps {
          script {
              echo 'Cleaning Allure results...'
-             bat 'rmdir /s /q \\allure-results'
+             bat 'rmdir allure-results'
          }
      }
  }
