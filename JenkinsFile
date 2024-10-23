@@ -14,12 +14,7 @@ pipeline {
             }
         }
 
-        stage('Clean Allure Results') {
-            steps {
-                // Clean previous Allure results to ensure fresh data
-                deleteDir('target/allure-results') // Clear out the existing allure results
-            }
-        }
+
 
         stage('Home Page Comp Test') {
             steps {
