@@ -142,7 +142,7 @@
         <profile>
             <id>HomePage</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
                 <property>
                     <name>environment</name>
                     <value>HomePage</value>
@@ -153,10 +153,118 @@
             </properties>
         </profile>
 
+        <!-- CheckoutPage Profile -->
+        <profile>
+            <id>CheckoutPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>CheckoutPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>CheckoutPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- RewardPage Profile -->
+        <profile>
+            <id>RewardPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>RewardPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>RewardPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- BrandsPage Profile -->
+        <profile>
+            <id>BrandsPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>BrandsPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>BrandsPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- CategoryPage Profile -->
+        <profile>
+            <id>CategoryPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>CategoryPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>CategoryPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- Footer Profile -->
+        <profile>
+            <id>Footer</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>Footer</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>FooterCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+        <!-- Header Profile -->
+        <profile>
+            <id>Header</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>Header</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>HeaderCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+
+        <!-- LoginPage Profile -->
+        <profile>
+            <id>LoginPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>LoginPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>LoginPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+
+        <!-- MyAccountPage Profile -->
         <profile>
             <id>MyAccountPage</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
                 <property>
                     <name>environment</name>
                     <value>MyAccountPage</value>
@@ -167,6 +275,52 @@
             </properties>
         </profile>
 
+        <!-- NewsletterPage Profile -->
+        <profile>
+            <id>NewsletterPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>NewsletterPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>NewsletterPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+
+        <!-- ProductPage Profile -->
+        <profile>
+            <id>ProductPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>ProductPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>ProductPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
+
+
+        <!-- RegisterPage Profile -->
+        <profile>
+            <id>RegisterPage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>environment</name>
+                    <value>RegisterPage</value>
+                </property>
+            </activation>
+            <properties>
+                <testNGSuite>RegisterPageCompTest.xml</testNGSuite>
+            </properties>
+        </profile>
 
 
 
