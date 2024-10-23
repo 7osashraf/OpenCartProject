@@ -31,6 +31,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Clean Allure Results') {
+            steps {
+                deleteDir('allure-results') // Ensure previous results are cleared
+            }
+        }
     }
 
     post {
