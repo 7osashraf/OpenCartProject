@@ -1,5 +1,6 @@
 package ReturnsPage_Test;
 
+import LoginPage_Test.LoginPageComp_Test;
 import ReturnsPage.ReturnsPageComp;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -13,6 +14,11 @@ public class ReturnsPageCompTest extends ReturnsPageComp {
     public void openBrowser(ITestResult result) throws Exception {
         SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        LoginPageComp_Test loginPageCompTest = new LoginPageComp_Test();
+        loginPageCompTest.CheckIfUserLoggedinWithValidData();
+
+        driver.navigate().to(getConfigValue("config","returnsUrl"));
     }
 
     @AfterMethod

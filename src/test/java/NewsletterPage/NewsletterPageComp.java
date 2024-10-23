@@ -18,9 +18,11 @@ public class NewsletterPageComp extends NewsletterPageWebElements {
     public void CheckNewsletterSubscriptionTitleIsDisplayed(){
         logger.debug("Check page title is displayed");
         // Title displayed
-        WebElement PageTitle = GetTitle();
-        checkIfNotNull(PageTitle, "Page Title");
-        CheckIfTextIsDiplayed(PageTitle, "Newsletter Subscription");
+        WebElement NewsletterTitle = GetTitle();
+        CheckIfTextIsDiplayed(NewsletterTitle, "Page Title");
+        String Title = NewsletterTitle.getText();
+        checkIfEqual(Title, "Newsletter Subscription");
+        System.out.println("the Title of the page is : " +Title);
     }
 
     // Subscribe buttons Yes/No

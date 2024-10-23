@@ -12,5 +12,6 @@ public class ReturnsPageWebElements extends FindingElements {
     public WebElement GetEmail(){return findElementById("input-email");}
     public WebElement GetTelephone(){return findElementById("input-telephone");}
     public WebElement GetPassword(){return findElementById("input-password");}
-
+    public WebElement GetReturnsContainer(){return findElementById("account-return");}
+    public WebElement GetReturnsTitle(){return findElementByTagName("h1");}
    }
