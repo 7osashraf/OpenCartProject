@@ -19,7 +19,7 @@ public class NewsletterPageCompTest extends NewsletterPageComp {
         LoginPageComp_Test loginPageCompTest = new LoginPageComp_Test();
         loginPageCompTest.CheckIfUserLoggedinWithValidData();
 
-        driver.navigate().to("https://tutorialsninja.com/demo/index.php?route=account/newsletter");
+        driver.navigate().to(getConfigValue("config","newsletterUrl"));
     }
 
     @Test

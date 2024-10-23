@@ -72,7 +72,6 @@ public class CheckoutPageTest extends CheckoutPageComp {
     public void checkStepSix() throws InterruptedException {
         checkStepFive();
         checkConfirmOrder();
-
     }
 
 }
