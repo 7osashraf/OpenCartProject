@@ -11,7 +11,7 @@ import java.time.Duration;
 public class Header_Comp_Test extends Header_Comp {
     @BeforeMethod
     public void OpenHomePage(ITestResult result) throws Exception {
-        OpenBrowser(result);
+        SetupTheDriver(result);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }

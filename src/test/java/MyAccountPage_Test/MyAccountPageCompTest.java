@@ -42,8 +42,6 @@ public class MyAccountPageCompTest extends MyAccountPageComp {
 @AfterMethod(alwaysRun = true)
 public void CloseBrowser(ITestResult result) throws Exception {
     closeDriver(result);
-    ScreenRecord.stopRecording();
-    Thread.sleep(2000);
     driver.quit();
 
 }}
