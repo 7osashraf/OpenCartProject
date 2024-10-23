@@ -84,6 +84,13 @@ public class TestingMethod extends settingUpWebDriver{
         }
     }
 
+    // Assert true
+    public void checkIfTrue(boolean condition, String message) {
+        if (!condition) {
+            String ErrorMessage = String.format("Expected the condition to be true: %s", message);
+            throw new AssertionError(ErrorMessage);
+        }
+    }
 
 }
 
