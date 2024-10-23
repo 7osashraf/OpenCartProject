@@ -2,8 +2,6 @@ pipeline {
     agent any
 
     stages {
-
-
         stage('Clean Projects') {
             steps {
                 bat 'mvn clean'
@@ -16,25 +14,22 @@ pipeline {
             }
         }
 
-
+        stage('Clean Allure Results') {
+            steps {
+                // Clean previous Allure results to ensure fresh data
+                deleteDir('target/allure-results') // Clear out the existing allure results
+            }
+        }
 
         stage('Home Page Comp Test') {
             steps {
                 script {
                     try {
-                        bat """
-                            mvn package -PHomePage
-                        """
+                        bat 'mvn package -PHomePage'
                     } catch (Exception e) {
                         echo "Test failed: ${e.message}"
                     }
                 }
-            }
-        }
-
-        stage('Clean Allure Results') {
-            steps {
-                deleteDir('allure-results') // Ensure previous results are cleared
             }
         }
     }
@@ -42,19 +37,18 @@ pipeline {
     post {
         always {
             // Archive the JAR file generated
-                       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
 
-                       // Publish JUnit test results
-                       junit 'target/surefire-reports/junitreports/TEST-*.xml'
+            // Publish JUnit test results
+            junit 'target/surefire-reports/junitreports/TEST-*.xml'
 
-                       // Archive screenshots
-                       archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+            // Archive screenshots
+            archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
 
-                       // Generate Allure report
-                       allure([
-                           results: [[path: 'target/allure-results']]
-                       ])
-
+            // Generate Allure report
+            allure([
+                results: [[path: 'target/allure-results']]
+            ])
         }
     }
 }
