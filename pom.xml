@@ -153,20 +153,6 @@
             </properties>
         </profile>
 
-        <profile>
-            <id>MyAccountPage</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>environment</name>
-                    <value>MyAccountPage</value>
-                </property>
-            </activation>
-            <properties>
-                <testNGSuite>MyAccountPageCompTest.xml</testNGSuite>
-            </properties>
-        </profile>
-
 
 
 

@@ -2,8 +2,6 @@ pipeline {
     agent any
 
     stages {
-
-
         stage('Clean Projects') {
             steps {
                 bat 'mvn clean'
@@ -18,15 +16,39 @@ pipeline {
 
 
 
+
         stage('Home Page Comp Test') {
             steps {
                 script {
                     try {
-                        bat """
-                            mvn clean test -PHomePage
-                        """
+                        bat 'mvn package -PHomePage'
                     } catch (Exception e) {
                         echo "Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+
+        stage('Checkout Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PCheckoutPage'
+                    } catch (Exception e) {
+                        echo "Checkout Page Test failed: ${e.message}"
+                    }
+                }
+            }
+        }
+
+        stage('Reward Page Comp Test') {
+            steps {
+                script {
+                    try {
+                        bat 'mvn package -PRewardPage'
+                    } catch (Exception e) {
+                        echo "Reward Page Test failed: ${e.message}"
                     }
                 }
             }
@@ -35,9 +57,17 @@ pipeline {
 
     post {
         always {
+            // Archive the JAR file generated
             archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
-            junit '/target/surefire-reports/junitreports/TEST-*.xml'
+
+            // Publish JUnit test results
+            junit 'target/surefire-reports/junitreports/TEST-*.xml'
+
+            // Archive screenshots
             archiveArtifacts artifacts: 'ScreenShots/*.png', allowEmptyArchive: true
+
+
+
         }
     }
 }

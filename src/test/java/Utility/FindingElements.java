@@ -22,6 +22,10 @@ public class FindingElements extends WaitUtils{
     public WebElement findElementByLinkText(String LinkText) {WebElement elemnt = driver.findElement(By.linkText(LinkText));
         return elemnt;}
 
+    public WebElement findElementByCssSelector(String cssSelector) {WebElement elemnt = driver.findElement(By.cssSelector(cssSelector));
+        return elemnt;
+    }
+
 
     public List<WebElement> findElementsById(String Id) {
         List<WebElement> elements = driver.findElements(By.id(Id));
@@ -43,6 +47,10 @@ public class FindingElements extends WaitUtils{
         return elements;
     }
 
+    public List<WebElement> findElementsByCssSelector(String cssSelector) {
+        List<WebElement> elements = driver.findElements(By.cssSelector(cssSelector));
+        return elements;
+    }
 
 
 }
